@@ -12,18 +12,25 @@ ul.nobullets {
 list-style-type: none;
 }
 
-/* answer button */
-.ansBtn,
-.ansBtn:hover,
-.ansBtn:active,
-.ansBtn:focus,
-.ansBtn:active:focus {
-    box-shadow: none;
-    outline: none;
-    background-color: #28a745;
+/* button styles */
+
+.button-style{
+    background-color:#360C7B;
+    color: white;
 }
 
+.button-style:hover,
+.button-style:active,
+.button-style:focus,
+.button-style:active:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: #a645df ;
+    color: white;
+}
 
-
+#view-scores {
+    color: #7D3C98;
+}
 
 
