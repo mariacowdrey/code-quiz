@@ -5,3 +5,4 @@ A code quiz that gives users 75 seconds to answer questions.
 * The "View High Scores" button shows a list of saved high scores.
 
 ## Deployed application:
+https://mariacowdrey.github.io/code-quiz/
