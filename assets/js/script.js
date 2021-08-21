@@ -1,68 +1,69 @@
 
-const introEl = document.querySelector("#intro");
+var introEl = document.querySelector("#intro");
 
 // timer
 let timeEl = document.querySelector("p.time");
 let secondsLeft = 75;
+let scoreEl = document.querySelector("#score");
 
 // questions
-const questionsEl = document.querySelector("#questions");
+var questionsEl = document.querySelector("#questions");
 let questionEl = document.querySelector("#question");
 let questionCount = 0;
 
 // results
-const yaynayEl = document.querySelector("#yaynay");
-const finalEl = document.querySelector("#final");
+var yaynayEl = document.querySelector("#yaynay");
+var finalEl = document.querySelector("#final");
 let initialsInput = document.querySelector("#initials");
 
 // high scores
-const highscoresEl = document.querySelector("#highscores");
+var highscoresEl = document.querySelector("#highscores");
 let scoreListEl = document.querySelector("#score-list");
 let scoreList = [];
 
 // buttons
-const startBtn = document.querySelector("#start");
-const ansBtn = document.querySelectorAll("button.ansBtn")
-const ans1Btn = document.querySelector("#answer1");
-const ans2Btn = document.querySelector("#answer2");
-const ans3Btn = document.querySelector("#answer3");
-const ans4Btn = document.querySelector("#answer4");
-const submitScrBtn = document.querySelector("#submit-score");
-const goBackBtn = document.querySelector("#goback");
-const clearScrBtn = document.querySelector("#clearscores");
-const viewScrBtn = document.querySelector("#view-scores");
+var startBtn = document.querySelector("#start");
+var ansBtn = document.querySelectorAll("button.ansBtn")
+var ans1Btn = document.querySelector("#answer1");
+var ans2Btn = document.querySelector("#answer2");
+var ans3Btn = document.querySelector("#answer3");
+var ans4Btn = document.querySelector("#answer4");
+var submitScrBtn = document.querySelector("#submit-score");
+var goBackBtn = document.querySelector("#goback");
+var clearScrBtn = document.querySelector("#clearscores");
+var viewScrBtn = document.querySelector("#view-scores");
 
 // Questions and answers
-const questions = [ 
+var questions = [ 
     {
         // question 0
         question: "Commonly used data types do NOT include:",
         answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
-        correctAnswer: "3"
+        correctAnswer: "2"
     },
     {
         // question 1
         question: "The condition in an if / else statement is enclosed within ____.",
         answers: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
-        correctAnswer: "3"
+        correctAnswer: "2"
     },
     {
         // question 2
         question: "Arrays in Javascript can be used to store ____.",
         answers: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
-        correctAnswer: "4"
+        correctAnswer: "3"
     },
     {
         // question 3
         question: "String values must be enclosed within ____ when being assigned to variables.",
-        answers: ["1. commmas", "2. curly brackets", "3. quotes", "4. parentheses"],
-        correctAnswer: "3"
+        answers: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
+        correctAnswer: "2"
     },
     {
         // question 4
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
         answers: ["1. Javascript", "2. terminal/bash", "3. for loops", "4. console.log"],
-        correctAnswer: "4"
+        correctAnswer: "3"
     }
 ];
 
@@ -92,7 +93,7 @@ function startQuiz() {
     setQuestion(questionCount);
 }
 
-// function to set question; takes in a count and displays the next question/answers
+// function to set question
 function setQuestion(id) {
     if (id < questions.length) {
         questionEl.textContent = questions[id].question;
@@ -117,27 +118,21 @@ function checkAnswer(event) {
         p.style.display = 'none';
     }, 1000);
 
-    // answer checker
-    correct = questions[questionCount].correctAnswer;
-    if (event === correct) {
+    // check answer
+    if (questions[questionCount].correctAnswer === event.target.value) {
         p.textContent = "Correct!";
-    } 
-    else if (event !== correct) {
+    } else if (questions[questionCount].correctAnswer !== event.target.value) {
         secondsLeft = secondsLeft - 10;
         p.textContent = "Wrong!";
     }
 
-    // increment so the questions index is increased
     if (questionCount < questions.length) {
         questionCount++;
     }
-    // call setQuestion to bring in next question when any ansBtn is clicked
     setQuestion(questionCount);
 }
 
-function addScore(event) {
-    event.preventDefault();
-
+function addScore() {
     finalEl.style.display = "none";
     highscoresEl.style.display = "block";
 
@@ -170,7 +165,6 @@ function storeScores() {
 }
 
 function displayScores() {
-
     let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
 
     // If scores were retrieved from localStorage, update the scorelist array to it
@@ -195,6 +189,7 @@ ansBtn.forEach(item => {
 
 // Add score
 submitScrBtn.addEventListener("click", addScore);
+
 
 // Go back button
 goBackBtn.addEventListener("click", function () {

@@ -1,4 +1,31 @@
 
+
+/* button styles */
+#view-scores {
+    color: #7D3C98;
+}
+
+.button-style{
+    background-color:#360C7B;
+    color: white;
+}
+.button-style:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+.button-style:hover {
+    box-shadow: none;
+    outline: none;
+    background-color: #a645df ;
+    color: white;
+}
+
+#score-list {
+    background-color: #a277e7a1;
+}
+
+
 /* hide sections until they are shown via the click events */
 #questions,
 #final,
@@ -11,26 +38,3 @@
 ul.nobullets {
 list-style-type: none;
 }
-
-/* button styles */
-
-.button-style{
-    background-color:#360C7B;
-    color: white;
-}
-
-.button-style:hover,
-.button-style:active,
-.button-style:focus,
-.button-style:active:focus {
-    box-shadow: none;
-    outline: none;
-    background-color: #a645df ;
-    color: white;
-}
-
-#view-scores {
-    color: #7D3C98;
-}
-
-
