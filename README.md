@@ -13,6 +13,6 @@ https://mariacowdrey.github.io/code-quiz/
 ## Technologies Used
 * Bootstrap
 * jQuery
-* Javascript
+* JavaScript
 * HTML
 * CSS
